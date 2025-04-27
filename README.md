@@ -1,3 +1,337 @@
+Overview
+DCIDE is an all-in-one case management platform designed specifically to support individuals experiencing homelessness, addiction, mental health struggles, and social barriers. It empowers outreach workers, social service providers, and advocates with the tools they need to track progress, manage support plans, and coordinate care in a way that is client-centered, trauma-informed, and action-oriented.
+
+🎯 Core Purpose
+To drive real change by creating a structured, supportive environment for vulnerable individuals—connecting them to housing, healthcare, recovery programs, and social services—while allowing staff to manage and document each case with clarity and accountability.
+
+🧩 Key Features
+✅ 1. Client-Centered Case Creation
+
+Quick intake forms with fields for consent, ID status, health history, and urgent needs
+Risk level indicators and priority flags
+Support for ongoing, complex, or overlapping cases
+✅ 2. Dynamic Case Dashboard
+Timeline view of interactions, progress, and goals
+Centralized case notes, appointments, and alerts
+Visual snapshots of progress (e.g., housing stability, treatment engagement)
+✅ 3. Task and Appointment Management
+Create, assign, and track tasks per client or per team
+Sync with calendars for follow-ups, outreach visits, and program dates
+Alerts for overdue or urgent tasks
+✅ 4. Built-in Resource Navigation (LINK Integration)
+Match clients to detox, rehab, shelters, counseling, legal help, etc.
+Submit and track referrals with one click
+Flag gaps in service coverage
+✅ 5. Safety, Health & Crisis Tracking
+Crisis alerts for overdose risk, violence, or self-harm
+Safety plans integrated into each case
+Real-time updates on emergency contacts and care needs
+✅ 6. Document & Form Handling
+Upload and manage consent forms, IDs, assessments, and treatment plans
+Auto-expiration alerts for time-sensitive documents
+✅ 7. Analytics & Outcome Reporting (FOOTPRINT Integration)
+Generate reports on success rates, services accessed, and team performance
+Export data for grants, audits, and impact measurement
+🧑‍💼 Who Uses DCIDE?
+
+Outreach Workers & Social Workers
+Mental Health & Addiction Counselors
+Shelter & Housing Coordinators
+Case Managers & Peer Support Workers
+Advocates & Program Directors
+🔐 Design Principles
+
+Respect First: Centered around dignity, choice, and lived experience
+Trauma-Informed UX: Calm color palettes, simple workflows, accessible design
+Mobile-Ready: Built for fieldwork and on-the-go updates
+Secure & Private: Role-based access, encrypted records, consent-driven
+🌱 DCIDE's Mission
+To provide a compassionate digital space where every case becomes an opportunity to inspire development, build trust, and support lasting change—everywhere, and for everyone.
+     🛡️ SYSTEM INTEGRITY + 
+
+
+
+
+
+
+1. Login System
+2. Signup (Registreation) 
+3. FOrgot Password System
+
+Portal Overview: Login / Signup / Forgot Password
+
+The User Access Portal consists of three main components — Login, Signup, and Forgot Password — all designed with security, usability, and database interaction in mind. Here’s a full breakdown:
+
+⸻
+
+🛂 1. Login System
+
+Purpose:
+Allow existing users to securely access their account using username or email along with their password.
+
+Flow:
+	•	User inputs their username or email and password.
+	•	System validates that both fields are filled.
+	•	Using PHP and MySQL, the system queries the database:
+	•	Checks if a matching username/email exists.
+	•	Verifies if the entered password matches the stored (hashed) password.
+	•	On success: user is logged in and redirected to the dashboard or homepage.
+	•	On failure: an error message (“Invalid credentials”) is shown without revealing whether username or password was wrong (for security reasons).
+
+⸻
+
+📝 2. Signup (Registration) System
+
+Purpose:
+Enable new users to create a secure account with multiple verification fields for future security recovery options.
+
+Form Fields:
+	•	Username (must be unique)
+	•	Email Address (must be unique and valid)
+	•	Security Question (dropdown menu with 10 preset questions)
+	•	Security Answer
+	•	Password
+	•	Confirm Password
+
+Flow:
+	•	System checks:
+	•	Password and Confirm Password must match.
+	•	Username and Email must not already exist in the database.
+	•	If everything is valid:
+	•	New user record is inserted into the database.
+	•	Passwords should be stored securely (hashed, using PHP’s password_hash()).
+	•	On success: a message like “Account created successfully! Please log in.” is shown.
+	•	On failure: a specific error message explains what went wrong (e.g., “Email already registered”).
+3. Forgot Password System
+
+Purpose:
+Allow users to reset their password securely by verifying their identity through a security question.
+
+Flow:
+	•	User submits their registered email address.
+	•	System checks if the email exists.
+	•	If found:
+	•	The corresponding security question is displayed.
+	•	User must correctly input the security answer.
+	•	If the security answer matches:
+	•	User can enter a new password and confirm new password.
+	•	Password must be validated to match and be securely updated in the database.
+	•	On success: user is redirected to login with a success message.
+	•	On failure: relevant error messages are shown (e.g., “Incorrect security answer”).
+
+⸻
+
+⚙️ Technical Requirements
+	•	PHP for server-side logic and database communication.
+	•	MySQL (via phpMyAdmin) as the database backend.
+	•	Secure password handling (use password hashing, not plain text).
+	•	Clean error messaging at every step.
+	•	Full File Documentation:
+Best Practices Used
+	•	Password hashing (password_hash() / password_verify() in PHP).
+	•	SQL Injection Prevention (using prepared statements in PHP).
+	•	Minimal error leaks (don’t reveal too much info about what failed).
+	•	Frontend Validation + Backend Validation for full protection.
+	•	User-friendly UI/UX (clear feedback at every action step).
+
+
+
+4.  INTAKE FORMS (BASIC , ADVANCED)
+   4.a PERSONAL and DEMOGRAPHIS INFO (BASIC) 
+
+
+
+4.a   Personal & Demographic Info
+	1.	First Name (text)
+	2.	Last Name (text)
+	3.	Preferred Name / Alias (text)
+	4.	Date of Birth (date picker)
+	5.	Gender Identity (single-select dropdown)
+	•	Male
+	•	Female
+	•	Non-binary
+	•	Transgender
+	•	Two-Spirit
+	•	Other (please specify)
+	6.	Pronouns (single-select dropdown)
+	•	She/Her
+	•	He/Him
+	•	They/Them
+	•	Ze/Hir
+	•	Other (please specify)
+	7.	Ethnicity / Cultural Background (multi-select checkboxes)
+	•	Indigenous (First Nations, Métis, Inuit)
+	•	Black / African
+	•	East Asian
+	•	South Asian
+	•	Latinx / Hispanic
+	•	Middle Eastern
+	•	White / Caucasian
+	•	Other (please specify)
+
+B. Contact & Emergency Info
+	1.	Profile Photo (upload or capture via device camera)
+	2.	Phone Number (text, validated)
+	3.	Email Address (text, validated)
+	4.	Alternative Contact (text – e.g., friend or family)
+	5.	Emergency Contact
+	•	Name (text)
+	•	Relationship (text)
+	•	Phone Number (text)
+
+C. Housing & Referrals
+	12.	Current Housing Status (single-select dropdown)
+	•	Unsheltered / Street
+	•	Emergency Shelter
+	•	Transitional Housing
+	•	Supportive Housing
+	•	Couch Surfing
+	•	Precariously Housed
+	•	Other (please specify)
+	13.	Duration of Current Situation (number + unit)
+	•	Days  [ ] Weeks  [ ] Months  [ ] Years
+	14.	Referral Source (single-select dropdown)
+	•	Self-referral
+	•	Outreach Worker
+	•	Agency Referral
+	•	Word of Mouth
+	•	Online / Website
+	•	Other (please specify)
+
+D. Consents & Privacy
+	15.	General Consent to Collect & Store Data (checkbox)
+	16.	Consent to Share with Partner Agencies (checkbox)
+	17.	Photo / Media Release (checkbox)
+	18.	E-Signature (signature widget)
+	19.	Date of Signature (auto-date)
+
+D. Consents & Privacy
+	1.	Terms of Service & Data Consent (checkbox)
+“I have read and agree to the Terms of Service governing data collection, storage, and use. I understand how my information will be handled, how I can revoke consent, and my right to privacy.”
+	2.	Digital E-Signature
+	•	Sign Here (touch-or-mouse-driven “fingertip” signature widget)
+	3.	Date of Signature (auto-populated)
+	4.	Photo/Media Release (checkbox)
+	5.	Consent to Share with Partner Agencies (checkbox)
+	6.	Privacy Notice Acknowledgement (checkbox)
+“I acknowledge I have been informed about how my personal data will be protected, who it may be shared with, and the process to withdraw consent at any time.”
+	7.	Date of Privacy Acknowledgement (auto-populated)
+
+⸻
+
+2. Client Assessment Form
+
+Once someone’s in the system, this digs into their needs, risks, strengths and plans.
+
+A. Presenting Needs & Risks
+	1.	Primary Areas of Concern (multi-select checkboxes)
+	•	Housing Instability
+	•	Substance Use
+	•	Mental Health
+	•	Physical Health
+	•	Legal / Justice Issues
+	•	Employment / Income
+	•	Family / Relationship Conflict
+	•	Other (please specify)
+	2.	Risk Level (single-select dropdown)
+	•	Low
+	•	Moderate
+	•	High
+	•	Immediate / Crisis
+
+B. Substance Use History
+	3.	Substances Used (multi-select checkboxes)
+	•	Alcohol
+	•	Cannabis
+	•	Cocaine
+	•	Methamphetamine
+	•	Opioids (Prescription / Heroin)
+	•	Benzodiazepines
+	•	Other (please specify)
+	4.	Frequency of Use (single-select dropdown per substance)
+	•	Daily
+	•	Weekly
+	•	Monthly
+	•	Occasionally
+	•	N/A
+	5.	Route of Administration (multi-select checkboxes)
+	•	Oral
+	•	Smoking / Vaping
+	•	Injection
+	•	Snorting
+	•	Transdermal
+	•	Other (please specify)
+	6.	Date of Last Use (date picker)
+
+C. Mental Health & Coping
+	7.	Diagnosed Conditions (multi-select checkboxes)
+	•	Depression
+	•	Anxiety Disorders
+	•	PTSD / Complex PTSD
+	•	Borderline Personality Disorder
+	•	Bipolar Disorder
+	•	ADHD
+	•	Autism Spectrum
+	•	Other (please specify)
+	8.	Current Symptoms (multi-select checkboxes with severity slider 1–5)
+	•	Mood Swings
+	•	Suicidal Ideation
+	•	Self-harm
+	•	Panic Attacks
+	•	Dissociation
+	•	Other (please specify)
+	9.	Coping Skills in Use (multi-select checkboxes)
+	•	Mindfulness / Meditation
+	•	Journaling
+	•	Exercise / Movement
+	•	Peer Support
+	•	None at this time
+	•	Other (please specify)
+
+D. Physical Health & Safety
+	10.	Chronic Health Conditions (text or multi-select)
+	11.	Medications (text)
+	12.	Allergies (text)
+	13.	Access to Healthcare (single-select dropdown)
+	•	Yes – Regular Provider
+	•	Yes – ER Only
+	•	No
+
+E. Social Supports & Strengths
+	14.	Support Network (multi-select checkboxes)
+	•	Family
+	•	Friends
+	•	Community Group
+	•	Spiritual / Religious
+	•	Other (please specify)
+	15.	Personal Strengths (multi-select checkboxes)
+	•	Organization
+	•	Problem-Solving
+	•	Creativity / Art
+	•	Resilience
+	•	Other (please specify)
+
+F. Goals & Action Plan
+	16.	Short-Term Goals (text, up to 3)
+	17.	Long-Term Goals (text, up to 3)
+	18.	Recommended Interventions (multi-select checkboxes)
+	•	Housing Referral
+	•	Needle Exchange / Harm Reduction
+	•	Counselling / Therapy
+	•	Addiction Treatment Program
+	•	Life Skills Workshop
+	•	Other (please specify)
+	19.	Next Appointment Date (date picker)
+	20.	Notes / Case Manager Comments (rich-text area)
+
+
+
+
+
+
+
+
+
 -=MASTER PLAN   CASE MANAGMENT - PLATFORM OVER 
 
 WHAT IS OUTSINC
